@@ -67,7 +67,7 @@ public class CheckoutPage {
     }
 
     public void validateOrderSummaryContent() {
-        if (!order_summary_section.isDisplayed()){
+        if (!first_product_order_summary_name.isDisplayed()){
             order_summary_section_show.click();
         }
     }

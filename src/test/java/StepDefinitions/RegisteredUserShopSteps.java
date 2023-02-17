@@ -156,6 +156,7 @@ public class RegisteredUserShopSteps {
 
     @And("user verify order summary")
     public void verifyOrderSummary() throws InterruptedException {
+        checkoutPage = new CheckoutPage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 
@@ -165,7 +166,6 @@ public class RegisteredUserShopSteps {
 
     @And("^user verify first product name is \"([^\"]*)\"$")
     public void verifyFirstProduct(String name) {
-        checkoutPage = new CheckoutPage(driver);
 
         checkoutPage.verifyFirstProductName(name);
     }
