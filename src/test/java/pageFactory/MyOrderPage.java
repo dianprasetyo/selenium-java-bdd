@@ -14,16 +14,16 @@ public class MyOrderPage {
     @FindBy(xpath = "//table[@id='my-orders-table']/tbody/tr/td[6]/a/span")
     WebElement view_my_order_detail;
 
-    @FindBy(xpath = "//tr[@id='order-item-row-46354']/td/strong")
+    @FindBy(xpath = "//strong[(text() = 'Montana Wind Jacket' or . = 'Montana Wind Jacket')]")
     WebElement my_order_first_product_name;
 
-    @FindBy(xpath = "//tr[@id='order-item-row-46354']/td[5]/span/span/span")
+    @FindBy(xpath = "//span[(text() = '$98.00' or . = '$98.00')]")
     WebElement my_order_first_product_price;
 
-    @FindBy(xpath = "//tr[@id='order-item-row-46356']/td/strong")
+    @FindBy(xpath = "//strong[(text() = 'Cronus Yoga Pant ' or . = 'Cronus Yoga Pant ')]")
     WebElement my_order_second_product_name;
 
-    @FindBy(xpath = "//tr[@id='order-item-row-46356']/td[5]/span/span/span")
+    @FindBy(xpath = "//span[(text() = '$48.00' or . = '$48.00')]")
     WebElement my_order_second_product_price;
 
     WebDriver driver;

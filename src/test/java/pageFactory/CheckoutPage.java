@@ -20,8 +20,11 @@ public class CheckoutPage {
     @FindBy(css = ".action.primary.checkout")
     WebElement button_place_order;
 
-    @FindBy(id = "opc-sidebar")
+    @FindBy(css = ".minicart.items.wrapper.overflowed")
     WebElement order_summary_section;
+
+    @FindBy(xpath = "//div[@id='opc-sidebar']/div/div/div/strong/span[2]")
+    WebElement order_summary_section_show;
 
     @FindBy(xpath = "//div[@id='opc-sidebar']/div/div/div[2]/div/ol/li/div/div/div/div/strong")
     WebElement first_product_order_summary_name;
@@ -61,6 +64,12 @@ public class CheckoutPage {
     public void clickButtonPlaceOrder() {
         button_place_order.isEnabled();
         button_place_order.click();
+    }
+
+    public void validateOrderSummaryContent() {
+        if (!order_summary_section.isDisplayed()){
+            order_summary_section_show.click();
+        }
     }
 
     public void verifyFirstProductName(String firstProductName) {

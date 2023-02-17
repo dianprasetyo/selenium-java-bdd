@@ -154,6 +154,15 @@ public class RegisteredUserShopSteps {
         Thread.sleep(5000);
     }
 
+    @And("user verify order summary")
+    public void verifyOrderSummary() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+
+        Thread.sleep(5000);
+        checkoutPage.validateOrderSummaryContent();
+    }
+
     @And("^user verify first product name is \"([^\"]*)\"$")
     public void verifyFirstProduct(String name) {
         checkoutPage = new CheckoutPage(driver);
@@ -200,14 +209,6 @@ public class RegisteredUserShopSteps {
         checkoutPage.clickButtonNext();
     }
 
-    @And("user verify order summary")
-    public void verifyOrderSummary() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-
-        checkoutPage.verifyOrderSummary();
-    }
-
     @And("user click place order")
     public void clickButtonPlaceOrder() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -244,7 +245,7 @@ public class RegisteredUserShopSteps {
 
     @And("^user verify first product name on my order is \"([^\"]*)\"$")
     public void verifyMyOrderFirstProductName(String name) {
-        myOrderPage.verifyMyOrderFirstProductName(name);
+       myOrderPage.verifyMyOrderFirstProductName(name);
     }
 
     @And("^user verify first product price on my order is \"([^\"]*)\"$")
@@ -259,7 +260,7 @@ public class RegisteredUserShopSteps {
 
     @And("^user verify second product price on my order is \"([^\"]*)\"$")
     public void verifyMyOrderSecondProductPrice(String price) {
-        myOrderPage.verifyMyOrderSecondProductPrice(price);
+      myOrderPage.verifyMyOrderSecondProductPrice(price);
     }
 
     @Then("user close browser")
